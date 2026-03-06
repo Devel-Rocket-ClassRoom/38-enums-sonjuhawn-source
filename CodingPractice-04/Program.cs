@@ -55,7 +55,44 @@ Console.WriteLine("'''");
                 break;
         }
     }
-    
+}
+Console.WriteLine("'''\n");
+
+Console.WriteLine("'''");
+{
+    PrintItemInfo("전설의 검", ItemRarity.Legendary);
+
+    void PrintItemInfo(string name, ItemRarity rarity)
+    {
+        Console.WriteLine($"아이템: {name}");
+        Console.WriteLine($"등급: {rarity}");
+    }
+}
+Console.WriteLine("'''\n");
+
+Console.WriteLine("'''");
+{
+    Move(Direction.Up);
+    Move(Direction.Right);
+
+    void Move(Direction direction)
+    {
+        switch (direction)
+        {
+            case Direction.Up:
+                Console.WriteLine("위로 이동(y + 1)");
+                break;
+            case Direction.Down:
+                Console.WriteLine("밑으로 이동(y - 1)");
+                break;
+            case Direction.Left:
+                Console.WriteLine("왼쪽로 이동(x - 1)");
+                break;
+            case Direction.Right:
+                Console.WriteLine("오른쪽으로 이동(x + 1)");
+                break;
+        }
+    }
 }
 Console.WriteLine("'''\n");
 
