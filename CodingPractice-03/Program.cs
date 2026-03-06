@@ -43,9 +43,40 @@ Console.WriteLine("'''");
     Console.WriteLine($"투명 토글 : {status}");
 }
 Console.WriteLine("'''\n");
+
 Console.WriteLine("'''");
 {
-    BuffStatus buff = BuffStatus.None;
+    BuffStatus nowbuff = BuffStatus.None;
+    ApplyBuff(BuffStatus.AttackUp);
+    ApplyBuff(BuffStatus.SpeedUp);
+    Console.WriteLine($"공격력 버프 있음? {hasBuff(BuffStatus.AttackUp)}");
+    RemoveBuff(BuffStatus.AttackUp);
+    Console.WriteLine($"공격력 버프 있음? {hasBuff(BuffStatus.AttackUp)}");
+
+
+    void ApplyBuff(BuffStatus buff)
+    {
+        nowbuff |= buff;
+        Console.WriteLine($"버프 적용: {buff}");
+        Console.WriteLine($"현재 버프: {buff}");
+    }
+    void RemoveBuff(BuffStatus buff)
+    {
+        nowbuff &= ~buff;
+        Console.WriteLine($"버프 해제: {buff}");
+        Console.WriteLine($"현재 버프: {buff}");
+    }
+    bool hasBuff(BuffStatus buff)
+    {
+        if ((nowbuff & buff) != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
 Console.WriteLine("'''\n");
 
